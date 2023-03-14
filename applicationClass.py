@@ -2,7 +2,13 @@
 This runs the program
 """
 
-def start ():
-    print ("program has started")
+from sheridanSystem import run
 
-start()
+class Application:
+
+    def start ():
+        print ("program has started")
+
+        run()
+
+    start()
