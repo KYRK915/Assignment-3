@@ -8,9 +8,6 @@ from buildingInfo import building
 class Application:
 
     def start ():
-        print ("program has started")
-
         sheridanSystems.run()
-
 
     start()

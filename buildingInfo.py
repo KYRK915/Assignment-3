@@ -31,7 +31,7 @@ class building:
                             IotSensors.sensorReadings()
         
         else:
-            while buildName.isnumeric():
+            while (buildName.isnumeric()==False) or (len(buildName)!= 10):
                 print ("Invalid Entry")
                 buildName = input("Re-Enter Building Name: ")
                 if (buildName.isnumeric() == False) and (len(buildName) == 10):
@@ -45,16 +45,16 @@ class building:
                             sensors += 1
                             IotSensors.sensorReadings()
             
-                else:
-                    while noOfSensors.isdigit() == False:
-                        ("Enter the number of sensors deployed across Sheridan Campus: ")
-                        if noOfSensors.isdigit():
-                            a = int(noOfSensors)  
-                            a +=1
-                            while sensors != a:
-                                print ("Sensor", sensors)
-                                sensors += 1
-                                IotSensors.sensorReadings()
+                    else:
+                        while noOfSensors.isdigit() == False:
+                            ("Enter the number of sensors deployed across Sheridan Campus: ")
+                            if noOfSensors.isdigit():
+                                a = int(noOfSensors)  
+                                a +=1
+                                while sensors != a:
+                                    print ("Sensor", sensors)
+                                    sensors += 1
+                                    IotSensors.sensorReadings()
 
 
         
