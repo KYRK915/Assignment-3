@@ -21,28 +21,58 @@ class IotSensors:
             print("Rounded Average Readings", sum(aveList)/ len(aveList), 'PPM')
 
 
-        noDays = int(input("Enter the number of days for the readings: "))
-        noDays += 1
-        days = 1
-        aveList = []
+        noDays = input("Enter the number of days for the readings: ")
+        
+        if noDays.isdigit():
+            b = int(noDays) 
+            b += 1
+            days = 1
+            aveList = []
+
+            #This asks the user for the CO2 readings based on how many days they input
+            while days != b:
+                z = int(input("Enter the C02 for Day {} (Between 20 - 50 PPM) : ". format(days)))
+
+                # This makes sure the input is between 20 and 50
+                if z >= 20 and z <= 50:
+                    aveList.append(z)
+                elif z <20 or z >50:
+                    while z <20 or z >50:
+                        print ('Wrong Input')
+                        z = int(input("Enter the C02 for Day {} (Between 20 - 50 PPM) : ". format(days)))
+                        if z >= 20 and z <= 50:
+                            aveList.append(z)
+                days += 1 
+
+                computeAvg()
+        
 
 
-        #This asks the user for the CO2 readings based on how many days they input
-        while days != noDays:
-            z = int(input("Enter the C02 for Day {} (Between 20 - 50 PPM) : ". format(days)))
+        else:
+            while noDays.isdigit() == False:
+                noDays = input("Re-Enter the number of days for the readings: ")
+                if noDays.isdigit():
+                    b = int(noDays) 
+                    b += 1
+                    days = 1
+                    aveList = []
 
-            # This makes sure the input is between 20 and 50
-            if z >= 20 and z <= 50:
-                aveList.append(z)
-            elif z <20 or z >50:
-                while z <20 or z >50:
-                    print ('Wrong Input')
-                    z = int(input("Enter the C02 for Day {} (Between 20 - 50 PPM) : ". format(days)))
-                    if z >= 20 and z <= 50:
-                        aveList.append(z)
-            days += 1 
+                #This asks the user for the CO2 readings based on how many days they input
+                    while days != b:
+                        z = int(input("Enter the C02 for Day {} (Between 20 - 50 PPM) : ". format(days)))
 
-        computeAvg()
+                        # This makes sure the input is between 20 and 50
+                        if z >= 20 and z <= 50:
+                            aveList.append(z)
+                        elif z <20 or z >50:
+                            while z <20 or z >50:
+                                print ('Wrong Input')
+                                z = int(input("Enter the C02 for Day {} (Between 20 - 50 PPM) : ". format(days)))
+                                if z >= 20 and z <= 50:
+                                    aveList.append(z)
+                        days += 1 
+
+                        computeAvg()
 
 
     

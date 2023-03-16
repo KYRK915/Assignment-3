@@ -4,17 +4,18 @@ This program creates the number of buildings
 from buildingInfo import building
 
 class sheridanSystems:
-    
+    #starts the program
     def run():
+
         noOfBuild = input("Enter the number of buildings: ")
-        print (type(noOfBuild))
         builds = 1
 
-
+        #checks if input is an integer
         if noOfBuild.isdigit():
             x = int(noOfBuild)
             x += 1 
             while builds != x:
+                print ("Building", builds)
                 building.createSensors()
                 builds += 1 
 
@@ -25,6 +26,7 @@ class sheridanSystems:
                     x = int(noOfBuild)
                     x += 1  
                     while builds != x:
+                        print ("Building", builds)
                         building.createSensors()
                         builds += 1
             
