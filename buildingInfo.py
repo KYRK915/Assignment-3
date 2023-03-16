@@ -10,8 +10,7 @@ class building:
 
         if (buildName.isnumeric() == False) and (len(buildName) == 10):
             noOfSensors = input("Enter the number of sensors deployed across Sheridan Campus: ")
-            sensors = 1
-           
+            sensors = 1           
             if noOfSensors.isdigit():
                 a = int(noOfSensors)  
                 a +=1
@@ -37,8 +36,7 @@ class building:
                 buildName = input("Re-Enter Building Name: ")
                 if (buildName.isnumeric() == False) and (len(buildName) == 10):
                     noOfSensors = input("Enter the number of sensors deployed across Sheridan Campus: ")
-                    sensors = 1
-           
+                    sensors = 1           
                     if noOfSensors.isdigit():
                         a = int(noOfSensors)  
                         a +=1
