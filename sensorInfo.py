@@ -6,31 +6,29 @@ import random
 
 class IotSensors:
 
-    
-    
-
-    # Gives the sensor positions
-    
     # asks the user for CO2 readings
     def sensorReadings():
 
+        # Gives the sensor positions
         def sensorPos():
             print ("x:", str(random.randint(1,100)))
             print ('y:', str(random.randint(1,100)))
 
         sensorPos()
-        
-        y = int(input("Enter the number of days for the readings: "))
-        y += 1
-        days = 1
-        aveList = []
 
         # computes the average CO2 reading
         def computeAvg():
             print("Rounded Average Readings", sum(aveList)/ len(aveList), 'PPM')
 
+
+        noDays = int(input("Enter the number of days for the readings: "))
+        noDays += 1
+        days = 1
+        aveList = []
+
+
         #This asks the user for the CO2 readings based on how many days they input
-        while days != y:
+        while days != noDays:
             z = int(input("Enter the C02 for Day {} (Between 20 - 50 PPM) : ". format(days)))
 
             # This makes sure the input is between 20 and 50
@@ -44,7 +42,7 @@ class IotSensors:
                         aveList.append(z)
             days += 1 
 
-            computeAvg()
+        computeAvg()
 
 
     

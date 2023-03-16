@@ -12,6 +12,5 @@ class Application:
 
         sheridanSystems.run()
 
-        building.createSensors()
 
     start()
