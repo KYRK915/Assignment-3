@@ -2,8 +2,6 @@
 gathers info for sensor position, CO2 readings and computes average
 """
 import random
-from sheridanSystemFile import sheridanSystems
-
 
 class IotSensors:
 
@@ -13,23 +11,29 @@ class IotSensors:
     def sensorReadings():
         days = 1
         aveList = []
+        
+        
         # Gives the sensor positions
         def sensorPos():
-            print ("x:", str(random.randint(1,100)))
-            print ('y:', str(random.randint(1,100)))
+            x = random.randint(1,100)
+            y = random.randint(1,100)
+            IotSensors.IotSensorsList.append(x)
+            IotSensors.IotSensorsList.append(y)
 
-
+        sensorPos()
+    
         # computes the average CO2 reading
         def computeAvg():
+            import buildingFile
             ave = sum(aveList)/ len(aveList)
             print("Rounded Average Readings", ave , 'PPM')
             IotSensors.IotSensorsList.append(ave)
-            sheridanSystems.printSensorInfo()
-
+            buildingFile.building.printInfo()             
 
         noDays = input("Enter the number of days for the readings: ")
         
         if noDays.isdigit():
+            IotSensors.IotSensorsList.append(noDays)
             b = int(noDays) 
             b += 1
             
@@ -45,6 +49,7 @@ class IotSensors:
                     if k >= 20 and k <= 50:
                         aveList.append(k)
                         IotSensors.IotSensorsList.append(k)
+
                     elif k <20 or k >50:
                         while k <20 or k >50:
                             print ('Wrong Input')
@@ -52,7 +57,7 @@ class IotSensors:
                             if z >= 20 and z <= 50:
                                 aveList.append(z)
                                 IotSensors.IotSensorsList.append(z)
-                               
+                                                              
                 else:
                     while z.isdigit() == False:
                         print ('Wrong Input')
@@ -73,11 +78,11 @@ class IotSensors:
                 
             #This computes the average CO2 reading
             computeAvg()
-
         else:
             while noDays.isdigit() == False:
                 noDays = input("Re-Enter the number of days for the readings: ")
                 if noDays.isdigit():
+                    IotSensors.IotSensorsList.append(noDays)
                     b = int(noDays) 
                     b += 1
                     days = 1
@@ -121,8 +126,10 @@ class IotSensors:
                                                 IotSensors.IotSensorsList.append(z)
                                         
                 days += 1   
-                
+                return noDays
             computeAvg()
 
+        
+    
     
     

@@ -1,8 +1,8 @@
 """
 This program creates the number of buildings
 """
-from buildingInfo import building 
-from sensorInfo import IotSensors
+
+
 
 class sheridanSystems:
     
@@ -19,7 +19,9 @@ class sheridanSystems:
             x += 1 
             while builds != x:
                 print ("Building", builds)
-                building.createSensors()
+                import buildingFile
+                sheridanSystems.sheridanSystemsList.append(builds)
+                buildingFile.building.createSensors()
                 builds += 1 
                 
 
@@ -30,15 +32,10 @@ class sheridanSystems:
                     x = int(noOfBuild)
                     x += 1  
                     while builds != x:
+                        import buildingFile
                         print ("Building", builds)
-                        building.createSensors()
-                        builds += 1
-            
-        
-        
-        def printSenInfo():
-            print(sheridanSystems.sheridanSystemsList)
-            print(building.buildingList)
-            print(IotSensors.IotSensorsList)
+                        sheridanSystems.sheridanSystemsList.append(builds)
+                        buildingFile.building.createSensors()
+                        builds += 1   
     
     

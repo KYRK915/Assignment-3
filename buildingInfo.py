@@ -5,9 +5,11 @@ from sensorInfo import IotSensors
 
 class building:
 
+    buildingList = []
+    
     def createSensors():
         buildName = input("Enter Building Name: ")
-
+        building.buildingList.append(buildName)
         if (buildName.isnumeric() == False) and (len(buildName) == 10):
             noOfSensors = input("Enter the number of sensors deployed across Sheridan Campus: ")
             sensors = 1           
@@ -15,7 +17,7 @@ class building:
                 a = int(noOfSensors)  
                 a +=1
                 while sensors != a:
-                    print ("Sensor", sensors)
+                    print('Sensor', sensors)
                     sensors += 1
                     IotSensors.sensorReadings()
             
@@ -59,4 +61,9 @@ class building:
 
         
             
-        print (buildName)
+        return buildName
+    
+    
+    
+    
+        

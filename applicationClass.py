@@ -2,12 +2,13 @@
 This runs the program
 """
 
-from sheridanSystem import sheridanSystems
-from buildingInfo import building
+#from sheridanSystemFile import *
 
-class Application:
 
+class application:
+    
     def start ():
-        sheridanSystems.run()
-
+        import sheridanSystemFile
+        sheridanSystemFile.sheridanSystems.run()
+        
     start()
